@@ -10,7 +10,7 @@ const App = () => {
   const [state, setState] = useState(expenses);
   const [filteredYear, setFilteredYear] = useState('2020');
 
-  const filterChangeHandler = selectedYear => {
+  const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
   const addExpense = (input) => {
@@ -26,8 +26,11 @@ const App = () => {
   return (
     <div>
       <NewExpense addExpense={addExpense} />
-      <ExpensesFilter selected={filteredYear} onChangeFilter={filterChangeHandler} />
       <Card className="expenses">
+        <ExpensesFilter
+          selected={filteredYear}
+          onChangeFilter={filterChangeHandler}
+        />
         {state.map((item) => (
           <ExpenseItem key={Math.random(Math.random()) * 1000} items={item} />
         ))}
