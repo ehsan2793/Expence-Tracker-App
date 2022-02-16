@@ -1,12 +1,12 @@
-import React from 'react'
-
+import React from 'react';
+import ExpenseItem from './components/ExpenseItem';
 const App = () => {
   return (
     <div>
       <h1>hello world</h1>
-      <p>this is another example</p>
+      <ExpenseItem />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
