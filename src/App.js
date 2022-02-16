@@ -13,6 +13,7 @@ const App = () => {
       amount: input.amount,
       date: input.date,
     };
+
     setState([newExpense, ...state]);
   };
 

@@ -1,9 +1,9 @@
 const expenses = [
-    // {
-    //     title: 'Car Insurance',
-    //     amount: 100.0,
-    //     date: new Date(2022, 1, 14),
-    // },
+    {
+        title: 'Car Insurance',
+        amount: 100.0,
+        date: new Date(2022, 1, 13),
+    },
     // {
     //     title: 'House Insurance',
     //     amount: 100.0,

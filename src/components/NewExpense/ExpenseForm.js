@@ -13,13 +13,15 @@ const ExpenseForm = (props) => {
             return { ...prevState, [name]: value };
         });
     };
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const expenseData = {
             title: userInput.title,
             amount: userInput.amount,
-            date: new Date(userInput.date),
+            date: new Date(userInput.date.replace('-', ',')),
         };
+
         props.addExpense(expenseData);
         setUserInput(initialState);
     };
