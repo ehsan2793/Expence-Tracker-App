@@ -13,6 +13,10 @@ const App = () => {
   const filterChangeHandler = (selectedYear) => {
     setFilteredYear(selectedYear);
   };
+
+  const filteredExpenses = state.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
   const addExpense = (input) => {
     const newExpense = {
       id: Math.random(Math.random()) * 1000,
@@ -22,7 +26,7 @@ const App = () => {
     };
 
     setState((prevState) => {
-      return [newExpense, ...prevState]
+      return [newExpense, ...prevState];
     });
   };
 
@@ -34,9 +38,13 @@ const App = () => {
           selected={filteredYear}
           onChangeFilter={filterChangeHandler}
         />
-        {state.map((item) => (
-          <ExpenseItem key={item.id} items={item} />
-        ))}
+        {filteredExpenses.length === 0 ? (
+          <p>No expenses found.</p>
+        ) : (
+          filteredExpenses.map((item) => (
+            <ExpenseItem key={item.id} items={item} />
+          ))
+        )}
       </Card>
     </div>
   );
