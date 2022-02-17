@@ -15,12 +15,15 @@ const App = () => {
   };
   const addExpense = (input) => {
     const newExpense = {
+      id: Math.random(Math.random()) * 1000,
       title: input.title,
       amount: input.amount,
       date: input.date,
     };
 
-    setState([newExpense, ...state]);
+    setState((prevState) => {
+      return [newExpense, ...prevState]
+    });
   };
 
   return (
@@ -32,7 +35,7 @@ const App = () => {
           onChangeFilter={filterChangeHandler}
         />
         {state.map((item) => (
-          <ExpenseItem key={Math.random(Math.random()) * 1000} items={item} />
+          <ExpenseItem key={item.id} items={item} />
         ))}
       </Card>
     </div>
